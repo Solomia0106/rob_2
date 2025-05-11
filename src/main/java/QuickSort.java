@@ -10,6 +10,7 @@ public class QuickSort<T extends Comparable<T>> {
     }
 
     public T[] getArray() {
+
         return array;
     }
 
@@ -18,13 +19,6 @@ public class QuickSort<T extends Comparable<T>> {
             int pivotElementIndex = partition(first, last);
             quickSortArray(first, pivotElementIndex - 1);
             quickSortArray(pivotElementIndex + 1, last);
-        }
-    }
-    public void quickSortArrayDesc(int first, int last){
-        if(first < last){
-            int pivotElementIndex = partitionDesc(first,last);
-            quickSortArrayDesc(first, pivotElementIndex - 1);
-            quickSortArrayDesc(pivotElementIndex + 1, last);
         }
     }
 
@@ -45,21 +39,6 @@ public class QuickSort<T extends Comparable<T>> {
         return i + 1;
 
     }
-    private int partitionDesc(int first, int last){
-        T pivotElement = array[last];
-        int i = first - 1;
-        for(int j = first; j < last; j++){
-            if(array[j].compareTo(pivotElement) >= 0){
-                i++;
-                if(i != j){
-                    swap(i,j);
-                }
-            }
-        }
-        swap(i+1,last);
-        return i +1;
-    }
-
 
     private void swap(int i, int j) {
         T firstElement = array[i];
